@@ -1,13 +1,16 @@
 var express = require('express');
 var app = express();
 
-app.get('/', function (req, res) {
-    res.send('Hello World');
- })
- 
- var server = app.listen(8081, function () {
-    var host = server.address().address
-    var port = server.address().port
-    
-    console.log("Example app listening at http://%s:%s", host, port)
- })
+// Imports of all different kind of routes
+require("./src/routes/example")(app)
+
+// Creates a server
+var server = app.listen(8000, function () {
+   var host = server.address().address
+   var port = server.address().port
+   
+   console.log("Application listening at http://%s:%s", host, port)
+})
+
+// We are going to use only post function 
+// curl -XPOST localhost:8000 -d '{"User": "sid573", "Project": "M-Omics"}' 
