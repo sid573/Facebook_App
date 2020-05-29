@@ -1,6 +1,15 @@
 var express = require('express');
 var app = express();
 
+var myLogger = function (req, res, next) {
+   let newDate = new Date(Date.now());
+   console.log(`${newDate.toDateString()} ${newDate.toTimeString()}` + " ::: " + req.path)
+   next()
+}
+
+app.use(myLogger)
+
+
 // Imports of all different kind of routes
 require("./src/routes/example")(app)
 
