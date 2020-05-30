@@ -1,6 +1,9 @@
+var connectdb = require('../database/connect')
+
 module.exports = function(app){
     
         app.get('/', function (req, res) {
+            connectdb.databasePing();
             res.send('Hello World');
         })
 

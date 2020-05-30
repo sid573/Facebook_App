@@ -9,7 +9,6 @@ var myLogger = function (req, res, next) {
 
 app.use(myLogger)
 
-
 // Imports of all different kind of routes
 require("./src/routes/example")(app)
 
