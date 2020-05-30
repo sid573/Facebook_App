@@ -7,7 +7,12 @@ var myLogger = function (req, res, next) {
    next()
 }
 
+// Our Middleware
 app.use(myLogger)
+// Middleware for accepting Content-Type: application/x-www-form-urlencoded
+app.use(express.urlencoded())
+// Middleware for accepting Content-Type: application/json
+app.use(express.json())
 
 // Imports of all different kind of routes
 require("./src/routes/example")(app)
@@ -22,3 +27,5 @@ var server = app.listen(8000, function () {
 
 // We are going to use only post function 
 // curl -XPOST localhost:8000 -d '{"User": "sid573", "Project": "M-Omics"}' 
+
+// curl -XPOST localhost:8000 -H "Content-Type: application/json" -d ' {"User": "sid573", "Project": "M-Omics"} '

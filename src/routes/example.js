@@ -8,6 +8,10 @@ module.exports = function(app){
         })
 
         app.post('/', function (req, res) {
+            var rec = req.body;
+            var data = [];
+            data.push(rec);
+            connectdb.databaseSet("testing", data)
             response = {
                     Message: "May we meet again!!!",
                     Project: "M-Omics"
