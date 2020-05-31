@@ -1,13 +1,14 @@
 var connectdb = require('../database/connect')
+var cbFuncExample = require('../callbacks/example')
 
 module.exports = function(app){
     
-        app.get('/', function (req, res) {
+        app.get('/testing', function (req, res) {
             connectdb.databasePing();
             res.send('Hello World');
         })
 
-        app.post('/', function (req, res) {
+        app.post('/insert', function (req, res) {
             var rec = req.body;
             var data = [];
             data.push(rec);
@@ -17,6 +18,11 @@ module.exports = function(app){
                     Project: "M-Omics"
             };
             res.end(JSON.stringify(response));
+        })
+
+        app.get('/select', function(req, res) {
+            connectdb.databaseGet("testing", {}, cbFuncExample.select);
+            res.send("Check console");
         })
 }
 
