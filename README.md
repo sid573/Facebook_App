@@ -16,7 +16,7 @@ Hackathon Facebook
     roles: [ 
              { role: "readWrite", db: "facebook" }
            ]
-  }`
+  })`
 
 ## To login mongo console with new user
 - `$ mongo -u me-omics -p 'mongo101' --authenticationDatabase 'facebook'`
