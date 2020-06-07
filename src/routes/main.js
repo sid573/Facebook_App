@@ -12,7 +12,7 @@ module.exports = function(app){
                 User: p_id
             }
             // my callback for this is retCategory
-            // connectdb.databaseGet("Category", {S_id: shop_id}, cbFuncMain.retCategory, p_id)
+            connectdb.databaseGet("Category", {}, cbFuncMain.retCategory, p_id)
             res.end(JSON.stringify(response));
         })
 }
