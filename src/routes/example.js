@@ -21,7 +21,7 @@ module.exports = function(app){
         })
 
         app.get('/select', function(req, res) {
-            connectdb.databaseGet("testing", {}, cbFuncExample.select);
+            connectdb.databaseGet("testing", {}, cbFuncExample.select, "ps_id");
             res.send("Check console");
         })
 }

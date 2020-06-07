@@ -11,12 +11,12 @@
 
     Category
     {
-        {category_id: <id>, category_name: 'cat'},
+        {S_id: <id>, category_id: <id>, category_name: 'cat'},
     }
 
     Product
     {
-        {S_id: <ForeignKey>, p_id: <id>, p_name: 'name', price: 'RSxx', quantity: 'Y/N'}
+        {category_id: <ForeignKey>, p_id: <id>, p_name: 'name', price: 'RSxx', quantity: 'Y/N'}
     }
 
     

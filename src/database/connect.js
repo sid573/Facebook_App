@@ -29,7 +29,7 @@ module.exports = {
     },
     // Provide collectionID and filters to get data from database.
     // filter: {<field1>: <value>, ....}
-    databaseGet: function(collectionID, filter, callbackFunction){
+    databaseGet: function(collectionID, filter, callbackFunction, identifier){
         MongoClient.connect(dbUrl, function(err, db){
             if (err){
                 throw err;
@@ -37,7 +37,7 @@ module.exports = {
                 console.log(collectionID);
                 const database = db.db(useDatabase);
                 const cursor = database.collection(collectionID).find(filter);
-                callbackFunction(cursor);
+                callbackFunction(cursor,identifier);
             }
         })
     }

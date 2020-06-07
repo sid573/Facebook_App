@@ -1,5 +1,5 @@
 module.exports = {
-    select: function(cursor, ps_id){
+    retCategory: function(cursor, ps_id){
         cursor.toArray(function(err, items){
             if (err){
                 throw err;
@@ -7,5 +7,6 @@ module.exports = {
                 console.log(items);
             }
         })
+        console.log(ps_id)
     }
 }

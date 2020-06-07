@@ -16,6 +16,7 @@ app.use(express.json())
 
 // Imports of all different kind of routes
 require("./src/routes/example")(app)
+require("./src/routes/main")(app)
 
 // Creates a server
 var server = app.listen(8000, function () {
