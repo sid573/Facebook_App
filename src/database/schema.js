@@ -4,6 +4,23 @@
         { _id: "PSID", _name: ""},
     }
 
+    Shop
+    {
+        {S_id: <id>, name: 'name'},
+    }
+
+    Category
+    {
+        {category_id: <id>, category_name: 'cat'},
+    }
+
+    Product
+    {
+        {S_id: <ForeignKey>, p_id: <id>, p_name: 'name', price: 'RSxx', quantity: 'Y/N'}
+    }
+
+    
+
 SHOP:[{ 
 	S_id: <id>;
 	name: 'name';
