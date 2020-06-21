@@ -9,14 +9,7 @@ Hackathon Facebook
 ## Creating Role for mongodb
 - `$ mongo`
 - `> use facebook` 
-- `> db.createUser(
-  {
-    user: "me-omics",
-    pwd: "mongo101",
-    roles: [ 
-             { role: "readWrite", db: "facebook" }
-           ]
-  })`
+- `> db.createUser({user: "me-omics",pwd: "mongo101",roles: [{ role: "readWrite", db: "facebook" }]})`
 
 ## To login mongo console with new user
 - `$ mongo -u me-omics -p 'mongo101' --authenticationDatabase 'facebook'`

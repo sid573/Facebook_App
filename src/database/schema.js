@@ -1,4 +1,7 @@
 /*
+use facebook
+
+
     User
     {
         { _id: "PSID", _name: ""},
@@ -17,6 +20,10 @@
     Product
     {
         {category_id: <ForeignKey>, p_id: <id>, p_name: 'name', price: 'RSxx', quantity: 'Y/N'}
+    }
+    Time
+    {
+		{S_id: <ForiegnKey>, Date : DD-MM-YYYY, Slot:[{time_int : no. of persons }]} 
     }
 
     
