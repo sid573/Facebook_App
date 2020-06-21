@@ -1,6 +1,4 @@
 var connectdb = require('../database/connect')
-const https = require('https')
-
 const request = require('request')
 
 module.exports = {
@@ -16,15 +14,18 @@ module.exports = {
         const options ={
             method: 'GET',
             url:'https://me-omics.herokuapp.com/myapp',
+            body: {
+                ps_id: ps_id,
+            },
+            json: true,
         }
-        request(options)
-        .then(function(response){
-            console.log(response)
-        })
-        .catch(function(err){
-            throw err;
-        
-        })
+        request(options, (err, res, body) => {
+            if (err){
+                console.log(err);
+            }
+            console.log(body)
+        });
+
     },
 
     retProduct: function(cursor, ps_id){
