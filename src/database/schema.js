@@ -25,6 +25,10 @@ use facebook
     {
 		{S_id: <ForiegnKey>, Date : DD-MM-YYYY, Slot:[{time_int : no. of persons }]} 
     }
+    Cart
+    {
+		{S_id: <shop_id>, User: <ps_id/ForiengnKey> , items: items}
+    }
 
     
 

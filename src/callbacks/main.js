@@ -44,7 +44,7 @@ module.exports = {
             if (err){
                 throw err;
             } else {
-                if(items.empty()){
+                if(items.length==0){
                     var data = [];
                     data.push({S_id:shop_id, Date: date , 
                                     slot :
@@ -69,6 +69,18 @@ module.exports = {
 
             }
         })
-    }
+    },
+
+    setTime: function(cursor, ps_id){
+        cursor.toArray(function(err, items){
+            if (err){
+                throw err;
+            } else{
+                items.slot[s]++;
+            }
+        })
+    },
+
+
  }      
 

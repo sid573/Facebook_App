@@ -1,7 +1,6 @@
 var connectdb = require('../database/connect')
 var cbFuncMain = require('../callbacks/main')
 
-
 module.exports = function(app){
 
         // URL : /getcategories/shop_id?user=<ps_id>
@@ -44,9 +43,36 @@ module.exports = function(app){
             res.end(JSON.stringify(response));
         })
 
-        // URL : /setTime/user=<ps_id>
-        // app.post('/setTime',function (req, res)){
-        //     let
-        // }
+        //URL : /setTime/shop_id?user=<ps_id>
+        app.post('/setTime/:id',function (req, res){
+            let s = req.body;
+            let p_id = req.query.user;
+            let shop_id = req.params.id;
+            response = {
+                Status: "Fetching your request",
+                User: p_id,
+                Slot: s,
+            }
+            //callback: setTime
+            connectdb.databaseGet("Time",{S_id: shop_id,Date : date}, cbFuncMain.setTime,p_id)
+            res.end(JSON.stringify(response));
+        })
+
+        //URL: /cart/shop_id?user=<ps_id>
+        app.post('/cart?:id',function(req, res){
+            let p_id = req.query.user;
+            let items = req.body;
+            let shop_id = req.params.id;
+            response = {
+                Status: "Fetching your request",
+                User: p_id,
+            }
+            var data =[]
+            data.push({S_id: shop_id,User: p_id, items: items})
+            connectdb.databaseSet("Cart", data)
+            res.end(JSON.stringify(response));
+        })
+
+        //  
 }
 
